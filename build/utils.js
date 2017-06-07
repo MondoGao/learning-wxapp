@@ -1,5 +1,6 @@
 const webpack = require(`webpack`)
 const resolve = require(`path`).resolve
+const settings = require(`./settings`)
 
 const getPages = () => {
   return require(`../src/app.json`).pages
@@ -32,9 +33,13 @@ const webpackCompile = (compiler = getWebpackCompiler()) => {
   })
 }
 
+const getStyleLanguage = () => {
+  return settings.css
+}
 module.exports = {
   getPages,
   getWebpackConfig,
   getWebpackCompiler,
-  webpackCompile
+  webpackCompile,
+  getStyleLanguage
 }

@@ -4,11 +4,17 @@
   "main": "index.js",
   "author": "Mondo <mondogao@gmail.com>",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "gulp-extname": "^0.2.2"
+  },
   "devDependencies": {
+    "autoprefixer": "^7.1.1",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
+    "gulp-postcss": "^7.0.0",
     "postcss": "^6.0.1",
+    "postcss-scss": "^1.0.0",
+    "precss": "^1.4.0",
     "webpack": "^2.6.1"
   }
 }
