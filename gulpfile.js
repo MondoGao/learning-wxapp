@@ -36,4 +36,10 @@ gulp.task(`build:copy`, () => (
     .pipe(gulp.dest(`dist`))
 ))
 
-gulp.task(`default`, [`build:scripts`, `build:styles`, `build:copy`])
+gulp.task(`watch`, [`build:scripts`, `build:styles`, `build:copy`], () => {
+  gulp.watch(`src/**/*.js`, [`build:scripts`])
+  gulp.watch(`src/**/*.@(${utils.getStyleLanguage()})`, [`build:styles`])
+  gulp.watch(`src/**/*.@(json|wxml|wxss|png|gif|jp?(e)g|svg)`, [`build:copy`])
+})
+
+gulp.task(`default`, [`watch`])
