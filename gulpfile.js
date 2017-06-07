@@ -38,15 +38,22 @@ gulp.task(`build:styles`, () => {
     .pipe(gulp.dest(`dist`))
 })
 
+gulp.task(`build:xmls`, () => (
+  gulp.src(`src/**/*.html`)
+    .pipe(extname(`wxml`))
+    .pipe(gulp.dest(`dist`))
+))
+
 gulp.task(`build:copy`, () => (
   gulp.src([`src/**/*.@(json|wxml|wxss|png|gif|jp?(e)g|svg)`])
     .pipe(gulp.dest(`dist`))
 ))
 
-gulp.task(`watch`, [`build:scripts`, `build:styles`, `build:copy`, `build:jsons`], () => {
+gulp.task(`watch`, [`build:scripts`, `build:styles`, `build:copy`, `build:jsons`, `build:xmls`], () => {
   gulp.watch(`src/**/*.js`, [`build:scripts`])
   gulp.watch(`src/**/*.json.js`, [`build:jsons`])
   gulp.watch(`src/**/*.@(${utils.getStyleLanguage()})`, [`build:styles`])
+  gulp.watch(`src/**/*.html`, [`build:xmls`])
   gulp.watch(`src/**/*.@(json|wxml|wxss|png|gif|jp?(e)g|svg)`, [`build:copy`])
 })
 
