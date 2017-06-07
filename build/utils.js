@@ -3,7 +3,10 @@ const resolve = require(`path`).resolve
 const settings = require(`./settings`)
 
 const getPages = () => {
-  return require(`../src/app.json`).pages
+  let pages = require(`../src/app.json`).pages
+  pages = pages ? pages : []
+  
+  return pages
 }
 
 const getWebpackConfig = (baseConfig = require(`./webpack.config.base`), pagesArr = getPages()) => {
@@ -36,10 +39,24 @@ const webpackCompile = (compiler = getWebpackCompiler()) => {
 const getStyleLanguage = () => {
   return settings.css
 }
+
+const gulpRerwriteExt = () => {
+  const through = require(`through2`)
+  
+  return through.obj((file, encoding, callback) => {
+    const json = require(file.path)
+    
+    file.contents = Buffer.from(JSON.stringify(json))
+    file.path = file.path.replace(/\.json\./, `.`)
+    
+    callback(null, file)
+  })
+}
 module.exports = {
   getPages,
   getWebpackConfig,
   getWebpackCompiler,
   webpackCompile,
-  getStyleLanguage
+  getStyleLanguage,
+  gulpRerwriteExt
 }
