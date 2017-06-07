@@ -1,0 +1,14 @@
+{
+  "name": "learning-wxapp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Mondo <mondogao@gmail.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "postcss": "^6.0.1",
+    "webpack": "^2.6.1"
+  }
+}
