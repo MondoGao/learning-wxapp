@@ -14,13 +14,12 @@ gulp.task(`build:scripts`, () => (
   utils.webpackCompile()
 ))
 
-gulp.task(`build:jsons`, () => {
-  
+gulp.task(`build:jsons`, () => (
   gulp.src(`src/**/*.json.js`)
     .pipe(utils.gulpRerwriteExt())
     .pipe(extname(`json`))
     .pipe(gulp.dest(`dist`))
-})
+))
 
 gulp.task(`build:styles`, () => {
   const cssLang = utils.getStyleLanguage()
