@@ -3,14 +3,14 @@ $colorFontTitle: #c7ae9e;
 $colorFontDay: #f4f0ed;
 $colorFontMonth: #e8dfd9;
 $colorFontPage: #afafaf;
-$colorCalendarBg: #c7ae9e;
 
 .album-card {
   margin: 58rpx auto;
   width: 600rpx;
   background: #fff;
-  box-shadow: 0 0 40rpx -1rpx rgba(0, 0, 0, .05);
+  box-shadow: 0 0  30rpx 0rpx rgba(0, 0, 0, .18);
   text-align: center;
+  transition: all .3s;
 }
 
 .header {
@@ -51,7 +51,7 @@ $colorCalendarBg: #c7ae9e;
 .calendar {
   height: 146rpx;
   padding: 0 22rpx;
-  background: $colorCalendarBg;
+  background: $colorFontTitle;
   text-align: left;
   color: $colorFontMonth;
   

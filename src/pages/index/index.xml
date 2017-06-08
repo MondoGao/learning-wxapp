@@ -1,6 +1,6 @@
 <swiper class="swiper" bindchange="handleSwiperChange">
-    <swiper-item wx:for="{{albums}}">
-        <template is="album" data="{{...item}}"/>
+    <swiper-item wx:for="{{albums}}" wx:key="{{index}}">
+        <template is="album" data="{{...item, date}}"/>
     </swiper-item>
 </swiper>
 <view class="pagination">
@@ -8,7 +8,7 @@
 </view>
 
 <template name="album">
-    <view class="album-card">
+    <navigator class="album-card" url="/pages/album/album">
         <view class="header">
             <view class="title">{{title}}</view>
             <view class="desc">{{desc}}</view>
@@ -18,11 +18,11 @@
             <image src="{{coverSrc}}" mode="aspectFill"/>
         </view>
         <view class="calendar">
-            <view class="day">07</view>
+            <view class="day">{{date.day}}</view>
             <view class="date">
-                <view class="month">6月</view>
+                <view class="month">{{date.month}}月</view>
                 <view class="lunar">{{lunar}}</view>
             </view>
         </view>
-    </view>
+    </navigator>
 </template>
