@@ -20,7 +20,7 @@
         </view>
         <view class="comments-wrapper">
             <scroll-view class="comments" scroll-y="{{true}}">
-                <template wx:for="{{pic.comments}}" is="comment" data="{{index, content: item.content}}"/>
+                <template wx:for="{{pic.comments}}" wx:key="index" is="comment" data="{{index, content: item.content}}"/>
             </scroll-view>
             <form class="comment-form">
                 <input type="text" placeholder="评论..."/>

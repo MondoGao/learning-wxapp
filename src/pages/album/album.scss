@@ -1,12 +1,19 @@
+.list {
+  font-size: 0;
+}
+
 .pic-wrapper {
   display: inline-block;
-  margin-top: 2rpx;
+  margin-bottom: 2rpx;
   width: 374rpx;
   height: 281rpx;
   vertical-align: top;
   
   &:nth-child(2n) {
     margin-left: 2rpx;
+  }
+  &:nth-last-child(1), &:nth-last-child(2) {
+    margin-bottom: 0;
   }
   
   image {

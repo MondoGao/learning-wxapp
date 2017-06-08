@@ -8,7 +8,7 @@
 </view>
 
 <template name="album">
-    <navigator class="album-card" url="/pages/album/album">
+    <navigator class="album-card" url="/pages/album/album?id={{id}}">
         <view class="header">
             <view class="title">{{title}}</view>
             <view class="desc">{{desc}}</view>

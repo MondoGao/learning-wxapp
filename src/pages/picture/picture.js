@@ -45,7 +45,10 @@ Page({
           content: '还是本人比较帅'
         }
       ]
-    },
-    
+    }
+  },
+  
+  onLoad(query) {
+    console.log(query)
   }
 })
