@@ -70,7 +70,23 @@
 /* 0 */
 /***/ (function(module, exports) {
 
-
+App({
+  onLaunch(options) {
+  
+  },
+  
+  onShow(options) {
+  
+  },
+  
+  onHide() {
+  
+  },
+  
+  onError(msg) {
+  
+  }
+})
 
 /***/ })
 /******/ ]);
