@@ -39,7 +39,7 @@ gulp.task(`build:styles`, () => {
 })
 
 gulp.task(`build:xmls`, () => (
-  gulp.src(`src/**/*.html`)
+  gulp.src(`src/**/*.@(html|xml)`)
     .pipe(extname(`wxml`))
     .pipe(gulp.dest(`dist`))
 ))
@@ -53,7 +53,7 @@ gulp.task(`watch`, [`build:scripts`, `build:styles`, `build:copy`, `build:jsons`
   gulp.watch(`src/**/*.js`, [`build:scripts`])
   gulp.watch(`src/**/*.json.js`, [`build:jsons`])
   gulp.watch(`src/**/*.@(${utils.getStyleLanguage()})`, [`build:styles`])
-  gulp.watch(`src/**/*.html`, [`build:xmls`])
+  gulp.watch(`src/**/*.@(html|xml)`, [`build:xmls`])
   gulp.watch(`src/**/*.@(json|wxml|wxss|png|gif|jp?(e)g|svg)`, [`build:copy`])
 })
 

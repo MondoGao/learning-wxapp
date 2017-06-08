@@ -70,9 +70,7 @@
 /* 0 */
 /***/ (function(module, exports) {
 
-APP({
 
-})
 
 /***/ })
 /******/ ]);
