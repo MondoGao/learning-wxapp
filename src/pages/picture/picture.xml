@@ -1,4 +1,4 @@
-<swiper class="swiper" current="{{swiperCurrent}}">
+<swiper class="swiper" current="{{swiperCurrent}}" bindchange="handleSwiperChange">
     <swiper-item wx:for="{{pics}}" wx:key="{{index}}">
         <template is="picture" data="{{...item}}"/>
     </swiper-item>
@@ -6,7 +6,7 @@
 
 <template name="picture">
     <view class="container">
-        <image src="{{src}}" mode="aspectFill"></image>
+        <image src="{{src}}" mode="aspectFill" bindtap="handlePicTap" data-src="{{src}}"></image>
         <view class="meta-wrapper">
             <view class="meta">
                 <view class="desc">
@@ -16,13 +16,13 @@
                     <text class="date">{{date}}</text>
                     <text class="nickname">BY {{user.nickname}}</text>
                     <view class="like">
-                        <image src="/assets/cover@2x.png"/>
+                        <image src="/assets/picture-like{{isLiked ? 'd' : ''}}@2x.png"/>
                         喜欢
                     </view>
-                    <view class="share">
-                        <image src="/assets/cover@2x.png"/>
+                    <button open-type="share" class="share" bindtap="handleShareTap">
+                        <image src="/assets/picture-share@2x.png"/>
                         分享
-                    </view>
+                    </button>
                 </view>
             </view>
             <view class="comments-wrapper">

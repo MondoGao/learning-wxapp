@@ -6,6 +6,7 @@ Page({
         src: '/assets/cover@2x.png',
         desc: '我拍的照片和我本人一样苦苦的嘿嘿我拍的照片和我本人一样苦苦的嘿嘿我拍的照片和我本人一样苦苦的嘿嘿我拍的照片和我本人一样苦苦的嘿嘿',
         date: '2014-05-20',
+        isLiked: false,
         user: {
           id: 1,
           nickname: 'SHINAN'
@@ -53,6 +54,7 @@ Page({
         src: '/assets/cover@2x.png',
         desc: '我拍的照片和我本人一样苦苦的嘿嘿我拍的照片和我本人一样苦苦的嘿嘿我拍的照片和我本人一样苦苦的嘿嘿我拍的照片和我本人一样苦苦的嘿嘿',
         date: '2014-05-20',
+        isLiked: true,
         user: {
           id: 1,
           nickname: 'SHINAN'
@@ -106,9 +108,39 @@ Page({
         break
       }
     }
+    if (index === this.data.pics.length) {
+      index--
+    }
     
     this.setData({
-      swiperCurrent: index
+      swiperCurrent: index,
+      query
+    })
+  },
+  onShareAppMessage() {
+    return {
+      title: '华中大相册',
+      path: `${this.route}?id=${this.data.query.id}&$albumId=${this.data.query.albumId}`
+    }
+  },
+  
+  handleSwiperChange(e) {
+    wx.updateShareMenu({
+      path: `${this.route}?id=${this.data.pics[e.detail.current].id}&$albumId=${this.data.query.albumId}`
+    })
+    this.setData({
+      swiperCurrent: e.detail.current
+    })
+  },
+  handlePicTap(e) {
+    wx.previewImage({
+      current: e.target.dataset.src,
+      urls: this.data.pics.map(pic => pic.src)
+    })
+  },
+  handleShareTap(e) {
+    wx.showShareMenu({
+      withShareTicket: true
     })
   }
 })

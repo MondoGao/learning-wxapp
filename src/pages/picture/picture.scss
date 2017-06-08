@@ -70,6 +70,18 @@ $colorInput: #7e7e7e;
       }
     }
     .share {
+      margin: 0;
+      padding: 0;
+      font-size: inherit;
+      line-height: inherit;
+      background: none;
+      color: inherit;
+      overflow: visible;
+
+      &::after {
+        display: none;
+      }
+      
       image {
         width: 28rpx;
         height: 29rpx;
