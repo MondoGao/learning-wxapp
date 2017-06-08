@@ -1,5 +1,6 @@
 Page({
   data: {
+    id: 1,
     picSrcs: [
       {
         id: 1,

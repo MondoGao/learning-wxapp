@@ -1,33 +1,41 @@
-<view class="container">
-    <image src="{{pic.src}}" mode="aspectFill"></image>
-    <view class="meta-wrapper">
-        <view class="meta">
-            <view class="desc">
-                {{pic.desc}}
-            </view>
-            <view class="info">
-                <text class="date">{{pic.date}}</text>
-                <text class="nickname">BY {{pic.user.nickname}}</text>
-                <view class="like">
-                    <image src="/assets/cover@2x.png"/>
-                    喜欢
+<swiper class="swiper" current="{{swiperCurrent}}">
+    <swiper-item wx:for="{{pics}}" wx:key="{{index}}">
+        <template is="picture" data="{{...item}}"/>
+    </swiper-item>
+</swiper>
+
+<template name="picture">
+    <view class="container">
+        <image src="{{src}}" mode="aspectFill"></image>
+        <view class="meta-wrapper">
+            <view class="meta">
+                <view class="desc">
+                    {{desc}}
                 </view>
-                <view class="share">
-                    <image src="/assets/cover@2x.png"/>
-                    分享
+                <view class="info">
+                    <text class="date">{{date}}</text>
+                    <text class="nickname">BY {{user.nickname}}</text>
+                    <view class="like">
+                        <image src="/assets/cover@2x.png"/>
+                        喜欢
+                    </view>
+                    <view class="share">
+                        <image src="/assets/cover@2x.png"/>
+                        分享
+                    </view>
                 </view>
             </view>
-        </view>
-        <view class="comments-wrapper">
-            <scroll-view class="comments" scroll-y="{{true}}">
-                <template wx:for="{{pic.comments}}" wx:key="index" is="comment" data="{{index, content: item.content}}"/>
-            </scroll-view>
-            <form class="comment-form">
-                <input type="text" placeholder="评论..."/>
-            </form>
+            <view class="comments-wrapper">
+                <scroll-view class="comments" scroll-y="{{true}}">
+                    <template wx:for="{{comments}}" wx:key="index" is="comment" data="{{index, content: item.content}}"/>
+                </scroll-view>
+                <form class="comment-form">
+                    <input type="text" placeholder="评论..."/>
+                </form>
+            </view>
         </view>
     </view>
-</view>
+</template>
 
 <template name="comment">
     <view class="comment">
