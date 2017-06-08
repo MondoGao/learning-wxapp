@@ -1,0 +1,37 @@
+<view class="container">
+    <image src="{{pic.src}}" mode="aspectFill"></image>
+    <view class="meta-wrapper">
+        <view class="meta">
+            <view class="desc">
+                {{pic.desc}}
+            </view>
+            <view class="info">
+                <text class="date">{{pic.date}}</text>
+                <text class="nickname">BY {{pic.user.nickname}}</text>
+                <view class="like">
+                    <image src="/assets/cover@2x.png"/>
+                    喜欢
+                </view>
+                <view class="share">
+                    <image src="/assets/cover@2x.png"/>
+                    分享
+                </view>
+            </view>
+        </view>
+        <view class="comments-wrapper">
+            <scroll-view class="comments" scroll-y="{{true}}">
+                <template wx:for="{{pic.comments}}" is="comment" data="{{index, content: item.content}}"/>
+            </scroll-view>
+            <form class="comment-form">
+                <input type="text" placeholder="评论..."/>
+            </form>
+        </view>
+    </view>
+</view>
+
+<template name="comment">
+    <view class="comment">
+        <text class="floor">{{index + 1}}#</text>
+        <text class="content">{{content}}</text>
+    </view>
+</template>

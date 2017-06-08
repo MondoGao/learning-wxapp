@@ -1,0 +1,119 @@
+$colorBorder: #dedede;
+$colorDesc: #434343;
+$colorInfo: #7b7b7b;
+$colorFloor: #c7ae9e;
+$colorComment: #303030;
+$colorInputBg: #fafafa;
+$colorInput: #7e7e7e;
+
+.container {
+  height: 100vh ;
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  
+  image {
+    flex: none;
+    width: 100%;
+    height: 472rpx;
+  }
+}
+
+.meta-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  padding: 0 27rpx;
+}
+
+.meta {
+  flex: none;
+  padding: 54rpx 0 40rpx;
+  border-bottom: 1rpx solid $colorBorder;
+  
+  .desc {
+    color: $colorDesc;
+    font-size: 30rpx;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+  
+  .info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 57rpx;
+    color: $colorInfo;
+    font-size: 24rpx;
+    
+    .nickname {
+      margin: 0 auto 0 13rpx;
+    }
+    .like, .share {
+      image {
+        vertical-align: middle;
+        margin-right: 13rpx;
+      }
+    }
+    .like {
+      margin-right: 80rpx;
+      
+      image {
+        height: 27rpx;
+        width: 30rpx;
+      }
+    }
+    .share {
+      image {
+        width: 28rpx;
+        height: 29rpx;
+      }
+    }
+  }
+}
+
+.comments-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  padding: 40rpx 4rpx 20rpx;
+  
+  .comments {
+    flex: auto;
+    height: 220rpx;
+    overflow: visible;
+  }
+  
+  .comment {
+    margin-bottom: 33rpx;
+    font-size: 28rpx;
+    font-weight: 500;
+    
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+    .floor {
+      margin-right: 20rpx;
+      color: $colorFloor;
+      font-weight: bold;
+    }
+  }
+  .comment-form {
+    flex: none;
+    margin-top: 6rpx;
+    
+    input {
+      height: 60rpx;
+      line-height: 60rpx;
+      padding: 0 20rpx;
+      background: $colorInputBg;
+      font-size: 30rpx;
+      font-weight: 500;
+      color: $colorInput;
+      border: 1px $colorBorder solid;
+      border-radius: 4rpx;
+    }
+  }
+}
