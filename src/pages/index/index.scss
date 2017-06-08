@@ -6,7 +6,7 @@ $colorFontPage: #afafaf;
 $colorCalendarBg: #c7ae9e;
 
 .album-card {
-  margin: 58rpx auto 90rpx;
+  margin: 58rpx auto;
   width: 600rpx;
   background: #fff;
   box-shadow: 0 0 40rpx -1rpx rgba(0, 0, 0, .05);
@@ -73,6 +73,9 @@ $colorCalendarBg: #c7ae9e;
     .lunar {
     }
   }
+}
+.swiper {
+  height: 1000rpx;
 }
 
 .pagination {

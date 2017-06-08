@@ -1,20 +1,28 @@
-<view class="album-card">
-    <view class="header">
-        <view class="title">风景</view>
-        <view class="desc">华科景甚好 只是将离别</view>
-        <view class="number">共 100 张</view>
-    </view>
-    <view class="cover">
-        <image src="/assets/cover@2x.png" mode="aspectFill"></image>
-    </view>
-    <view class="calendar">
-        <view class="day">07</view>
-        <view class="date">
-            <view class="month">6月</view>
-            <view class="lunar">宜行房</view>
+<swiper class="swiper" bindchange="handleSwiperChange">
+    <swiper-item wx:for="{{albums}}">
+        <template is="album" data="{{...item}}"/>
+    </swiper-item>
+</swiper>
+<view class="pagination">
+    <text>{{swiperCurrent + 1}}/{{albums.length}}</text>
+</view>
+
+<template name="album">
+    <view class="album-card">
+        <view class="header">
+            <view class="title">{{title}}</view>
+            <view class="desc">{{desc}}</view>
+            <view class="number">共 {{picNum}} 张</view>
+        </view>
+        <view class="cover">
+            <image src="{{coverSrc}}" mode="aspectFill"/>
+        </view>
+        <view class="calendar">
+            <view class="day">07</view>
+            <view class="date">
+                <view class="month">6月</view>
+                <view class="lunar">{{lunar}}</view>
+            </view>
         </view>
     </view>
-</view>
-<view class="pagination">
-    <text>1/7</text>
-</view>
+</template>
