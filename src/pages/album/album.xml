@@ -1,0 +1,5 @@
+<scroll-view scroll-y="{{true}}" enable-back-to-top="{{true}}">
+    <navigator class="pic-wrapper" url="/pages/picture/picture" wx:for="{{picSrcs}}" wx:key="{{item}}">
+        <image mode="aspectFill" src="{{item}}"/>
+    </navigator>
+</scroll-view>
