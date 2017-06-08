@@ -15,3 +15,6 @@
         </view>
     </view>
 </view>
+<view class="pagination">
+    <text>1/7</text>
+</view>

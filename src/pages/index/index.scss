@@ -2,14 +2,14 @@ $colorFont: #7e7e7e;
 $colorFontTitle: #c7ae9e;
 $colorFontDay: #f4f0ed;
 $colorFontMonth: #e8dfd9;
+$colorFontPage: #afafaf;
 $colorCalendarBg: #c7ae9e;
 
 .album-card {
   margin: 58rpx auto 90rpx;
   width: 600rpx;
-  height: 848rpx;
   background: #fff;
-  box-shadow: 0 0 40rpx -2rpx rgba(0, 0, 0, .05);
+  box-shadow: 0 0 40rpx -1rpx rgba(0, 0, 0, .05);
   text-align: center;
 }
 
@@ -25,11 +25,14 @@ $colorCalendarBg: #c7ae9e;
     margin-top: 34rpx;
     font-size: 30rpx;
     color: $colorFont;
+    font-weight: 500;
   }
   .number {
     margin-top: 33rpx;
     font-size: 28rpx;
     color: $colorFont;
+    font-weight: 500;
+  
     &::before, &::after {
       content: ' - '
     }
@@ -63,10 +66,23 @@ $colorCalendarBg: #c7ae9e;
     display: inline-block;
     font-size: 28rpx;
     padding-left: 5rpx;
+    vertical-align: baseline;
     .month {
       padding-left: 2rpx;
     }
     .lunar {
     }
+  }
+}
+
+.pagination {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 500;
+  color: $colorFontPage;
+  
+  text {
+    border-bottom: 4rpx solid $colorFontPage;
+    letter-spacing: 6rpx;
   }
 }
