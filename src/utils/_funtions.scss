@@ -1,3 +1,0 @@
-@function px2Rpx($px, $base: 750) {
-  @return $px * (750 / $base) * 1rpx;
-}

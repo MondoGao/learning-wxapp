@@ -44,14 +44,15 @@ const gulpRerwriteExt = () => {
   const through = require(`through2`)
   
   return through.obj((file, encoding, callback) => {
-    const json = require(file.path)
+    const contents = file.contents.toString()
     
-    file.contents = Buffer.from(JSON.stringify(json))
+    file.contents = Buffer.from(JSON.stringify(eval(contents)))
     file.path = file.path.replace(/\.json\./, `.`)
     
     callback(null, file)
   })
 }
+
 module.exports = {
   getPages,
   getWebpackConfig,
