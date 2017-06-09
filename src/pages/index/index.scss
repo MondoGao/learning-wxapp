@@ -1,8 +1,4 @@
-$colorFont: #7e7e7e;
-$colorFontTitle: #c7ae9e;
-$colorFontDay: #f4f0ed;
-$colorFontMonth: #e8dfd9;
-$colorFontPage: #afafaf;
+@import "../../utils/_exports.scss";
 
 .album-card {
   margin: 58rpx auto;
@@ -18,18 +14,18 @@ $colorFontPage: #afafaf;
   .title {
     font-size: 48rpx;
     font-weight: bold;
-    color: $colorFontTitle;
+    color: $colorPrimary;
   }
   .desc {
     margin-top: 34rpx;
     font-size: 30rpx;
-    color: $colorFont;
+    color: $colorGrey1;
     font-weight: 500;
   }
   .number {
     margin-top: 33rpx;
     font-size: 28rpx;
-    color: $colorFont;
+    color: $colorGrey1;
     font-weight: 500;
   
     &::before, &::after {
@@ -50,7 +46,7 @@ $colorFontPage: #afafaf;
 .calendar {
   height: 146rpx;
   padding: 0 22rpx;
-  background: $colorFontTitle;
+  background: $colorPrimary;
   text-align: left;
   color: $colorFontMonth;
   

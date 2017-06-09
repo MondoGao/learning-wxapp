@@ -1,4 +1,4 @@
-({
+module.exports = {
   pages: [
     'pages/index/index',
     'pages/album/album',
@@ -10,4 +10,4 @@
     backgroundColor: '#f1f1f0'
   },
   debug: true
-})
+}

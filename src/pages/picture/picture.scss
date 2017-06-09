@@ -1,10 +1,4 @@
-$colorBorder: #dedede;
-$colorDesc: #434343;
-$colorInfo: #7b7b7b;
-$colorFloor: #c7ae9e;
-$colorComment: #303030;
-$colorInputBg: #fafafa;
-$colorInput: #7e7e7e;
+@import "../../utils/_exports.scss";
 
 .swiper {
   height: 100vh;
@@ -112,7 +106,7 @@ $colorInput: #7e7e7e;
     }
     .floor {
       margin-right: 20rpx;
-      color: $colorFloor;
+      color: $colorPrimary;
       font-weight: bold;
     }
   }
@@ -127,7 +121,7 @@ $colorInput: #7e7e7e;
       background: $colorInputBg;
       font-size: 30rpx;
       font-weight: 500;
-      color: $colorInput;
+      color: $colorGrey1;
       border: 1px $colorBorder solid;
       border-radius: 4rpx;
     }

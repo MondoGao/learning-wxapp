@@ -1,4 +1,5 @@
 const gulp = require(`gulp`)
+const resolve = require(`path`).resolve
 const extname = require(`gulp-extname`)
 
 const utils = require(`./build/utils`)
@@ -33,6 +34,7 @@ gulp.task(`build:jsons`, () => (
 gulp.task(`build:styles`, () => {
   const cssLang = utils.getStyleLanguage()
   const postcss = require(`gulp-postcss`)
+
   let postcssPlugins = [require(`autoprefixer`)]
   
   switch (cssLang) {
@@ -40,6 +42,10 @@ gulp.task(`build:styles`, () => {
       postcssPlugins.unshift(require(`precss`))
       break
   }
+  
+  postcssPlugins.unshift(require(`postcss-import`)({
+
+  }))
   
   return gulp.src(patterns.styles)
     .pipe(postcss(postcssPlugins))
