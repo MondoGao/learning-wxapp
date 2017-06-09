@@ -1,8 +1,15 @@
 Page({
   data: {
     isShowCommentForm: false,
-    pics: [
-      {
+    swiperCurrent: 0,
+    pics: {},
+    picIds: [],
+    query: {}
+  },
+  
+  refreshData() {
+    const data = {
+      1: {
         id: 1,
         src: '/assets/cover@2x.png',
         desc: '我拍的照片和我本人一样苦苦的嘿嘿我拍的照片和我本人一样苦苦的嘿嘿我拍的照片和我本人一样苦苦的嘿嘿我拍的照片和我本人一样苦苦的嘿嘿',
@@ -50,7 +57,7 @@ Page({
           }
         ]
       },
-      {
+      2: {
         id: 2,
         src: '/assets/cover@2x.png',
         desc: '我拍的照片和我本人一样苦苦的嘿嘿我拍的照片和我本人一样苦苦的嘿嘿我拍的照片和我本人一样苦苦的嘿嘿我拍的照片和我本人一样苦苦的嘿嘿',
@@ -111,26 +118,29 @@ Page({
             content: '还是本人比较帅'
           }
         ]
-      },
-    ],
-    swiperCurrent: 0
+      }
+    }
+  
+    wx.hideToast()
+    this.setData({
+      swiperCurrent: Object.keys(data).indexOf(this.data.query.id),
+      picIds: Object.keys(data),
+      pics: data
+    })
   },
   
   onLoad(query) {
-    let index = 0
-    for (; index < this.data.pics.length; index++) {
-      if (this.data.pics[index].id == query.id) {
-        break
-      }
-    }
-    if (index === this.data.pics.length) {
-      index--
-    }
+    wx.showLoading({
+      title: '加载图片中...',
+      mask: true
+    })
     
     this.setData({
-      swiperCurrent: index,
       query
     })
+  },
+  onShow() {
+    this.refreshData()
   },
   onShareAppMessage() {
     return {
@@ -141,7 +151,7 @@ Page({
   
   handleSwiperChange(e) {
     wx.updateShareMenu({
-      path: `${this.route}?id=${this.data.pics[e.detail.current].id}&$albumId=${this.data.query.albumId}`
+      path: `${this.route}?id=${this.data.pics[this.data.picIds[e.detail.current]].id}&$albumId=${this.data.query.albumId}`
     })
     this.setData({
       swiperCurrent: e.detail.current
