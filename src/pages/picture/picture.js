@@ -167,5 +167,10 @@ Page({
     this.setData({
       isShowCommentForm: false
     })
+  },
+  handleCommentFormHide(e) {
+    this.setData({
+      isShowCommentForm: false
+    })
   }
 })

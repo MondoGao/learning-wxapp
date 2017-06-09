@@ -1,9 +1,11 @@
 <swiper class="swiper" current="{{swiperCurrent}}" bindchange="handleSwiperChange">
     <swiper-item wx:for="{{pics}}" wx:key="{{index}}">
         <template is="picture" data="{{...item}}"/>
-        <form class="commment-form {{isShowCommentForm ? 'show' : ''}}">
-            <input placeholder="评论..." blur="{{isShowCommentForm}}" bindblur="handleCommentFormBlur"/>
-        </form>
+        <view class="form-layout {{isShowCommentForm ? 'show' : ''}}" catchtap="handleCommentFormHide">
+            <form class="comment-form" catchtap="handleBtnCommentTap">
+                <input placeholder="评论..." confirm-type="send" bindblur="handleCommentFormBlur"/>
+            </form>
+        </view>
     </swiper-item>
 </swiper>
 
