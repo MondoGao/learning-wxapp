@@ -10,7 +10,8 @@ const patterns = {
   styles: `src/**/+([^_]).${utils.getStyleLanguage()}`,
   stylesWatch: `src/**/*.${utils.getStyleLanguage()}`,
   xmls: `src/**/*.@(html|xml)`,
-  assets: `src/**/*.@(json|wxml|wxss|png|gif|jp?(e)g|svg)`
+  assetsImg: `src/**/*.@(png|gif|jp?(e)g|svg)`,
+  assetsOther: `src/**/*.@(json|wxml|wxss)`
 }
 
 gulp.task(`clean`, () => {
@@ -59,17 +60,26 @@ gulp.task(`build:xmls`, () => (
     .pipe(gulp.dest(`dist`))
 ))
 
-gulp.task(`build:copy`, () => (
-  gulp.src(patterns.assets)
+gulp.task(`build:assets:images`, () => {
+  const imagemin = require(`gulp-imagemin`)
+  
+  return gulp.src(patterns.assetsImg)
+    .pipe(imagemin())
+    .pipe(gulp.dest(`dist`))
+})
+
+gulp.task(`build:assets:other`, () => (
+  gulp.src(patterns.assetsOther)
     .pipe(gulp.dest(`dist`))
 ))
 
-gulp.task(`watch`, [`build:scripts`, `build:styles`, `build:copy`, `build:jsons`, `build:xmls`], () => {
+gulp.task(`watch`, [`build:scripts`, `build:styles`, `build:assets:images`, `build:assets:other`, `build:jsons`, `build:xmls`], () => {
   gulp.watch(patterns.scripts, [`build:scripts`])
   gulp.watch(patterns.jsons, [`build:jsons`])
   gulp.watch(patterns.stylesWatch, [`build:styles`])
   gulp.watch(patterns.xmls, [`build:xmls`])
-  gulp.watch(patterns.assets, [`build:copy`])
+  gulp.watch(patterns.assetsImg, [`build:assets:images`])
+  gulp.watch(patterns.assetsOther, [`build:assets:other`])
 })
 
 gulp.task(`default`, [`watch`])
