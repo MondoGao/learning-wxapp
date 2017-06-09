@@ -13,6 +13,7 @@
     "gulp-clean": "^0.3.2",
     "gulp-imagemin": "^3.3.0",
     "gulp-postcss": "^7.0.0",
+    "normalizr": "^3.2.3",
     "postcss": "^6.0.1",
     "postcss-import": "^10.0.0",
     "postcss-scss": "^1.0.0",

@@ -9,5 +9,10 @@ module.exports = {
   module: {
     rules: [
     ]
+  },
+  resolve: {
+    alias:{
+      sources: resolve(__dirname, `../src/sources`)
+    }
   }
 }
