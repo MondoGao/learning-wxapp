@@ -5,7 +5,7 @@ module.exports = {
     'pages/picture/picture'
   ],
   window: {
-    navigationBarBackgroundColor: '#c7ae9e',
+    navigationBarBackgroundColor: '#947969',
     navigationBarTitleText: '华中大相册',
     backgroundColor: '#f1f1f0'
   },

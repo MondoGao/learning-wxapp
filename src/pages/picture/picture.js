@@ -1,5 +1,6 @@
 Page({
   data: {
+    isShowCommentForm: false,
     pics: [
       {
         id: 1,
@@ -94,6 +95,20 @@ Page({
               nickname: '麦冬',
             },
             content: '还是本人比较帅'
+          },
+          {
+            user: {
+              id: 2,
+              nickname: '麦冬',
+            },
+            content: '还是本人比较帅'
+          },
+          {
+            user: {
+              id: 2,
+              nickname: '麦冬',
+            },
+            content: '还是本人比较帅'
           }
         ]
       },
@@ -141,6 +156,16 @@ Page({
   handleShareTap(e) {
     wx.showShareMenu({
       withShareTicket: true
+    })
+  },
+  handleBtnCommentTap(e) {
+    this.setData({
+      isShowCommentForm: true
+    })
+  },
+  handleCommentFormBlur(e) {
+    this.setData({
+      isShowCommentForm: false
     })
   }
 })
